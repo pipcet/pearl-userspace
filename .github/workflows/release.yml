@@ -30,9 +30,9 @@ jobs:
     - run: git submodule update --init pearl
     - run: make -C pearl -j13 build/released/pipcet/pearl-toolchain/toolchain.tar.zstd
     - run: tar -C pearl -xf pearl/build/released/pipcet/pearl-toolchain/toolchain.tar.zstd
-    - run: make -C pearl -j13 build/userspace.tar.zstd{release}
     - run: mkdir -p pearl/done/pearl/install
     - run: touch pearl/done/pearl/install/mkdir
+    - run: make -C pearl -j13 build/userspace.tar.zstd{release}
     - run: make -C pearl -j13 {release}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
