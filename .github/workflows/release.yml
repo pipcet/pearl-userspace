@@ -32,6 +32,7 @@ jobs:
     - run: tar -C pearl -xf pearl/build/released/pipcet/pearl-toolchain/toolchain.tar.zstd
     - run: mkdir -p pearl/done/pearl/install
     - run: touch --reference pearl/done/toolchain/binutils-gdb/checkout pearl/done/pearl/install/mkdir
+    - run: rm -rf done/userspace/glibc/glibc done/userspace/glibc/checkout
     - run: make -C pearl -j13 build/userspace.tar.zstd{release}
     - run: make -C pearl -j13 {release}
       env:
